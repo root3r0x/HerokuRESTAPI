@@ -1,12 +1,13 @@
 <h1>hello rails </h1>
 <ul>
+  Our blog has <%=Article.public_count %> articles and counting!
   <% @articles.each do |article| %>
+    <% unless article.archived? %>
     <li>
-      <!--a href="/articles/<%= article.id %>"-->
-      <!--a href="<%=article_path(article)%>"-->
       <%= link_to article.title, article %>
     </li>
-  <% end %>
+    <%end%>
+  <%end%>
 </ul>
 
 <%= link_to "New Article", new_article_path %>
